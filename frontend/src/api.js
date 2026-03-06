@@ -1,4 +1,6 @@
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:4000/api";
+// In development: Vite proxy forwards /api -> http://localhost:4000
+// In production (Vercel): /api/* is routed to the serverless function
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
 function getToken() {
   return localStorage.getItem("lms_token");

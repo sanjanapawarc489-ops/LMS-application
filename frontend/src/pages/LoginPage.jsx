@@ -21,6 +21,8 @@ export default function LoginPage() {
         await login(form.email, form.password);
       } else {
         await register(form.name, form.email, form.password);
+        setMode("login");
+        setForm((p) => ({ ...p, password: "" }));
       }
     } catch (err) {
       setError(err.message);
@@ -93,10 +95,12 @@ export default function LoginPage() {
             {mode === "login" ? "Don't have an account? Register" : "Already have an account? Login"}
           </button>
 
-          <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', fontSize: '0.85rem' }}>
-            <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Demo Credentials</div>
-            <div>student@lms.dev / password123</div>
-          </div>
+          {mode === "login" && (
+            <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', fontSize: '0.85rem' }}>
+              <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>Demo Credentials</div>
+              <div>student@lms.dev / password123</div>
+            </div>
+          )}
         </footer>
       </div>
     </div>

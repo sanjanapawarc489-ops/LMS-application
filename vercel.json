@@ -2,21 +2,21 @@
     "version": 2,
     "buildCommand": "cd frontend && npm install && npm run build",
     "outputDirectory": "frontend/dist",
-    "installCommand": "cd backend && npm install",
+    "installCommand": "npm install",
     "functions": {
         "api/index.js": {
             "memory": 512,
-            "maxDuration": 10
+            "maxDuration": 30
         }
     },
-    "rewrites": [
+    "routes": [
         {
-            "source": "/api/(.*)",
-            "destination": "/api/index.js"
+            "src": "/api/(.*)",
+            "dest": "/api/index.js"
         },
         {
-            "source": "/(.*)",
-            "destination": "/index.html"
+            "src": "/(.*)",
+            "dest": "/index.html"
         }
     ],
     "headers": [

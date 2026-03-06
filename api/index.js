@@ -9,7 +9,13 @@ import bcrypt from "bcryptjs";
 const app = express();
 const JWT_SECRET = process.env.JWT_SECRET || "lms-secret-key-vercel";
 
-app.use(cors({ origin: "*" }));
+const corsOptions = {
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // Handle preflight requests
 app.use(express.json());
 
 // ─── In-Memory Database ───────────────────────────────────────────────────────

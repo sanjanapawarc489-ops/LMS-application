@@ -30,9 +30,7 @@ export function AuthProvider({ children }) {
   }
 
   async function register(name, email, password) {
-    const data = await api.register({ name, email, password });
-    localStorage.setItem("lms_token", data.token);
-    setUser(data.user);
+    await api.register({ name, email, password });
   }
 
   function logout() {
