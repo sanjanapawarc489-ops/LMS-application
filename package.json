@@ -2,9 +2,15 @@
   "name": "lms-app",
   "private": true,
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev:backend": "npm --prefix backend run dev",
     "dev:frontend": "npm --prefix frontend run dev"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
   }
 }
-
